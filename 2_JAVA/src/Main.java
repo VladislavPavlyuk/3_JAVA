@@ -18,6 +18,17 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
+        Country country = new Country();
+        System.out.println(country);
+
+        country.setName("Ukraine");
+        country.setContinent("Eurasia");
+        country.setCapitalCity("Kyiv");
+        country.setPopulation(41130432);
+        country.setSquare(603550);
+        System.out.println(country);
+
+
         City city = new City();
         System.out.println(city);
 
