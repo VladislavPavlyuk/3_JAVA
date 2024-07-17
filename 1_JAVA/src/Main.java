@@ -26,7 +26,9 @@ Winter (якщо введене значення 1,2 або 12), Spring (якщ�
 Якщо користувач ввів значення не в діапазоні від 1 до 12 потрібно вивести повідомлення про помилку.
 
 Завдання 6:
-Користувач вводить з клавіатури кількість метрів. В залежності від вибору користувача програма переводить метри в милі, дюйми чи ярди
+Користувач вводить з клавіатури кількість метрів. В залежності від вибору користувача програма переводить метри в милі,
+дюйми чи ярди
+
 Завдання 7:
 Користувач вводить з клавіатури два числа. Потрібно вивести всі непарні числа в вказаному діапазоні. Якщо границі вказані не вірно потрібно провести нормалізацію границь. Наприклад, якщо ввели 20 і 11, потрібна нормалізація, після якої початок стане рівним 11, а кінець 20.
 Завдання 8:
@@ -54,7 +56,34 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Task 5");
+        System.out.println("\nTask 6");
+        Scanner myObj6 = new Scanner(System.in);
+        System.out.println("Enter meters : ");
+        int meters = myObj6.nextInt();
+        System.out.println("Convert " + meters + " meters into (1)miles, (2)inches, (3)yards");
+        System.out.println("Please select (1 - 3) : ");
+        int select = myObj6.nextInt();
+        if (select < 1 || select > 3) {
+            System.out.println("Invalid selection");
+        } else {
+            switch (select) {
+                case 1:
+                    System.out.println(meters + " meters = " + (meters * 1.609) + " miles");
+                    break;
+                case 2:
+                    System.out.println(meters + " meters = " + (meters * 0.0254) + " inches");
+                    break;
+                case 3:
+                    System.out.println(meters + " meters = " + (meters * 0.9144) + " yards");
+                    break;
+                default :
+                    System.out.println("Invalid selection");
+                    break;
+            }
+        }
+
+
+        System.out.println("\nTask 5");
         enum Seasons{
             Winter,
             Spring,
@@ -123,7 +152,7 @@ public class Main {
                     break;
             }
         }
-        System.out.println("Task 4");
+        System.out.println("\nTask 4");
         Scanner myObj3 = new Scanner(System.in);
         System.out.println("Enter 6 digits number:");
         String str = myObj3.nextLine();
@@ -143,7 +172,7 @@ public class Main {
         }
         System.out.println("Result: " + str2);
 
-        System.out.println("Task 3");
+        System.out.println("\nTask 3");
         Scanner myObj2 = new Scanner(System.in);
         System.out.println("Enter 1 number:");
         String number1 = myObj2.nextLine();
@@ -154,7 +183,7 @@ public class Main {
         String number4 = number1+number2+number3;
         System.out.println(number4);
 
-        System.out.println("Task 2");
+        System.out.println("\nTask 2");
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter number:");
         int number = Integer.parseInt(myObj.nextLine());
@@ -162,10 +191,10 @@ public class Main {
         System.out.println("Enter % percentage:");
         int percentage = Integer.parseInt(myObj.nextLine());
         System.out.println("Percentage % is: " + percentage);
-        System.out.println(percentage + "% of Number is: " + number*percentage/100);
+        System.out.println(percentage + "% of Number is: " + number * percentage/100);
 
 
-        System.out.println("Task 1");
+        System.out.println("\nTask 1");
         String str1 = "\n“Your time is limited,\n" +
                 "so don’t waste it\n" +
                 "living someone else’s life”\n" +
