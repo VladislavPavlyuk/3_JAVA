@@ -13,10 +13,20 @@
 Реалізуйте клас “Автомобіль”. Необхідно зберігати у полях класу: назва автомобіля, назва виробника, рік випуску, об’єм двигуна. Реалізуйте конструктори і методи класу для вводу даних, виводу даних, реалізуйте доступ до окремих полів через методи класу. Використайте механізм перевантаження методів.
 */
 
-import java.time.LocalDate;
-
 public class Main {
     public static void main(String[] args) {
+
+        Book book = new Book();
+        System.out.println(book);
+
+        book.setTitle("War and peace");
+        book.setAuthor("Leo Tolstoy");
+        book.setYearPublished("1869-01-01");
+        book.setPublisher("Messenger");
+        book.setGenre("Novel");
+        book.setPages(1225);
+        System.out.println(book);
+
 
         Country country = new Country();
         System.out.println(country);
