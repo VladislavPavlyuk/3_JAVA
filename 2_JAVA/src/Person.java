@@ -1,3 +1,6 @@
+/*
+Завдання 1:
+        До вже реалізованого класу “Людина” додати необхідні конструктори, а також необхідні перевантажені методи*/
 import java.time.LocalDate;
 
 public class Person {
@@ -6,7 +9,7 @@ public class Person {
     private String phoneNumber;
     private String city;
     private String country;
-    private String adress;
+    private String address;
 
     public void setName(String name){
 
@@ -16,8 +19,8 @@ public class Person {
 
         return name;
     }
-    public void setDateOfBirth(LocalDate dateOfBirth){
-
+    public void setDateOfBirth(String date){
+        LocalDate dateOfBirth = LocalDate.parse(date);
         this.dateOfBirth = dateOfBirth;
     }
     public LocalDate getDateOfBirth(){
@@ -48,13 +51,13 @@ public class Person {
 
         return country;
     }
-    public void setAdress(String adress){
+    public void setAddress(String address){
 
-        this.adress = adress;
+        this.address = address;
     }
-    public String getAdress(){
+    public String getAddress(){
 
-        return adress;
+        return address;
     }
 
     public Person(){
@@ -63,8 +66,16 @@ public class Person {
         this.phoneNumber = "";
         this.city = "";
         this.country = "";
-        this.adress = "";
+        this.address = "";
     }
 
+    @Override
+    public String toString() {
+        if (name != null) {
+            return name + " was born in " + dateOfBirth + " at " + city + " " + country + " currently living on " + address + " available by phone: "  + phoneNumber + ".\n";
+        } else {
+            return "Please clarify the name of the person\n";
+        }
+    }
 
 }
