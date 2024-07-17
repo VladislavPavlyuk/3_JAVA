@@ -16,6 +16,15 @@
 public class Main {
     public static void main(String[] args) {
 
+        Car car = new Car();
+        System.out.println(car);
+
+        car.setModel("R232");
+        car.setMake("Mersedes-AMG");
+        car.setYear(2022);
+        car.setEngineVolume(2000);
+        System.out.println(car);
+
         Book book = new Book();
         System.out.println(book);
 

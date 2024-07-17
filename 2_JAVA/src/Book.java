@@ -88,7 +88,7 @@ public class Book {
             return "Book \n[title : " + title + ",\n author : " + author + ",\n yearPublished : " + yearPublished
                     + ",\n publisher : " + publisher + ",\n genre : " + genre + "]\n";
         } else {
-            return "Please clarify the name of the book\n";
+            return "Please clarify the title of the book\n";
         }
     }
 
