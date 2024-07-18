@@ -55,7 +55,7 @@ Winter (якщо введене значення 1,2 або 12), Spring (якщ�
  Створити одновимірний масив, що містить лише непарні числа з першого масиву
  Створити одновимірний масив, що містить лише від’ємні числа з першого масиву
  Створити одновимірний масив, що містить лише додатні числа з першого масиву
-3
+
 Завдання 11:
 Написати метод, що відображає вертикальну або горизонтальну лінію із деяких символів. Метод приймає в якості параметрів: довжину лінії, напрям, символ.
 Завдання 12:
@@ -64,7 +64,6 @@ Winter (якщо введене значення 1,2 або 12), Spring (якщ�
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
-
 import java.util.Collections;
 
 
@@ -78,6 +77,66 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("Continuing...");
+    }
+
+    static void printArray(ArrayList <Integer> a){
+        if (a.size() > 0){
+            int x = 0;
+            while (x < a.size()) {
+                System.out.print(a.get(x) + "\t");
+                x++;
+
+                if (x % 20 == 0)   System.out.print("\n");
+                }
+            }
+        System.out.print("\n");
+        }
+
+
+    static ArrayList evens(ArrayList <Integer> array){
+        ArrayList<Integer> evens = new ArrayList<Integer>();
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) % 2 == 0) {
+                evens.add(array.get(i));
+            }
+        }
+        return evens;
+    }
+
+    static ArrayList odds(ArrayList <Integer> array){
+        ArrayList<Integer> odds = new ArrayList<Integer>();
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) % 2 != 0) {
+                odds.add(array.get(i));
+            }
+        }
+        return odds;
+    }
+    static ArrayList negatives(ArrayList <Integer> array){
+        ArrayList<Integer> negatives = new ArrayList<Integer>();
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) < 0) {
+                negatives.add(array.get(i));
+            }
+        }
+        return negatives;
+    }
+    static ArrayList positives(ArrayList <Integer> array){
+        ArrayList<Integer> negatives = new ArrayList<Integer>();
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) > 0) {
+                negatives.add(array.get(i));
+            }
+        }
+        return negatives;
+    }
+    static ArrayList array(int arraySize){
+        Random rand = new Random();
+        ArrayList<Integer> arr1 = new ArrayList<Integer>(arraySize);
+        for (int i = 0; i < arraySize; i++) {
+            arr1.add(rand.nextInt(arraySize * 10) - arraySize * 5);
+        }
+        return arr1;
     }
 
     static void  multiplyTable(int start, int finish){
@@ -111,26 +170,41 @@ public class Main {
     static void printMonth(Months month , Seasons season){
         System.out.println("Month : " + month + " " + " Season : " + season);
     }
+
     public static void main(String[] args) {
 
+
+        System.out.println("\nTask 10");
+        ArrayList<Integer> arr2 = array(100); //Маємо одновимірний масив, заповнений випадковими числами. На основі даних масиву потрібно:
+        System.out.println("Random array : ");
+        printArray(arr2);
+        pause();
+
+        ArrayList<Integer> e = evens(arr2);//Створити одновимірний масив, що містить лише парні числа з першого масиву
+        System.out.println("Evens : ");
+        printArray(e);
+        pause();
+
+        ArrayList<Integer> o = odds(arr2); //Створити одновимірний масив, що містить лише непарні числа з першого масиву
+        System.out.println("Odds : ");
+        printArray(o);
+        pause();
+
+        ArrayList<Integer> n = negatives(arr2);//Створити одновимірний масив, що містить лише від’ємні числа з першого масиву
+        System.out.println("Negatives : ");
+        printArray(n);
+        pause();
+
+        ArrayList<Integer> p = positives(arr2); //Створити одновимірний масив, що містить лише додатні числа з першого масиву
+        System.out.println("Positives : ");
+        printArray(p);
+        pause();
+
         System.out.println("\nTask 9");
-        Random rand = new Random();
 
-        int arraySize = 100;
-        ArrayList<Integer> arr1 = new ArrayList<Integer>(arraySize);
+        ArrayList<Integer> arr1 = array(100);
+        printArray(arr1);
 
-        for (int i = 0; i < 100; i++) {
-            arr1.add(rand.nextInt(arraySize * 10) - arraySize * 5);
-        }
-
-        int x = 0;
-        do {
-            for (int j = 0; j < 20; j++) {
-                System.out.print(arr1.get(x) + "\t");
-                x++;
-            }
-            System.out.print("\n");
-        } while (x < arraySize);
 
         // визначаємо мінімальне і максимальне значення,
         int max = Collections.max(arr1);
