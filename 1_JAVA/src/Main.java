@@ -57,10 +57,13 @@ Winter (якщо введене значення 1,2 або 12), Spring (якщ�
  Створити одновимірний масив, що містить лише додатні числа з першого масиву
 
 Завдання 11:
-Написати метод, що відображає вертикальну або горизонтальну лінію із деяких символів. Метод приймає в якості параметрів: довжину лінії, напрям, символ.
+Написати метод, що відображає вертикальну або горизонтальну лінію із деяких символів.
+Метод приймає в якості параметрів: довжину лінії, напрям, символ.
+
 Завдання 12:
 Написати метод, що сортує масив по спаданню або зростанню в залежності від вибору користувача*/
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -76,7 +79,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Continuing...");
+        System.out.println("Continuing...\n");
     }
 
     static void printArray(ArrayList <Integer> a){
@@ -91,7 +94,6 @@ public class Main {
             }
         System.out.print("\n");
         }
-
 
     static ArrayList evens(ArrayList <Integer> array){
         ArrayList<Integer> evens = new ArrayList<Integer>();
@@ -112,6 +114,7 @@ public class Main {
         }
         return odds;
     }
+
     static ArrayList negatives(ArrayList <Integer> array){
         ArrayList<Integer> negatives = new ArrayList<Integer>();
         for (int i = 0; i < array.size(); i++) {
@@ -121,6 +124,7 @@ public class Main {
         }
         return negatives;
     }
+
     static ArrayList positives(ArrayList <Integer> array){
         ArrayList<Integer> negatives = new ArrayList<Integer>();
         for (int i = 0; i < array.size(); i++) {
@@ -130,6 +134,7 @@ public class Main {
         }
         return negatives;
     }
+
     static ArrayList array(int arraySize){
         Random rand = new Random();
         ArrayList<Integer> arr1 = new ArrayList<Integer>(arraySize);
@@ -147,12 +152,14 @@ public class Main {
             System.out.print("\n");
         }
     }
+
     enum Seasons{
         Winter,
         Spring,
         Summer,
         Autumn
     }
+
     enum Months {
         January,
         February,
@@ -167,12 +174,77 @@ public class Main {
         November,
         December
     }
+
     static void printMonth(Months month , Seasons season){
         System.out.println("Month : " + month + " " + " Season : " + season);
     }
 
-    public static void main(String[] args) {
+    public static void printHorizontal(int length, char symbol){
+        for (int i = 1; i <= length; i++) {
+            System.out.print(symbol);
+        }
+        System.out.println();
+    }
 
+    public static void printVertical(int length, char symbol){
+        for (int i = 1; i <= length; i++) {
+            for (int j = 1; j <= length/4; j++) {
+                System.out.print(" ");
+            }
+            System.out.println(symbol);
+        }
+    }
+
+    public static ArrayList<Integer> accentSort(ArrayList<Integer> array){
+        Collections.sort(array);
+        return array;
+    }
+
+    public static ArrayList<Integer> decsentSort(ArrayList<Integer> array){
+        Collections.sort(array,Collections.reverseOrder());
+        return array;
+    }
+    public static void main(String[] args) throws IOException {
+
+        System.out.println("\nTask 12");
+        Scanner myObj12 = new Scanner(System.in);
+        ArrayList<Integer> arr3 = array(100);
+        printArray(arr3);
+
+        System.out.print("Select (a)ccent or (d)ecent sorting array: ");
+        char sortDirection = myObj12.next().charAt(0);
+        switch (sortDirection) {
+            case 'a':
+                printArray(accentSort(arr3));
+                break;
+            case 'd':
+                printArray(decsentSort(arr3));
+                break;
+            default:
+                System.out.println("Invalid sort direction");
+
+        }
+        pause();
+
+        System.out.println("\nTask 11");
+        Scanner myObj11 = new Scanner(System.in);
+        System.out.print("Enter length: ");
+        int length = myObj11.nextInt();
+        System.out.print("Enter direction (v)ertical or (h)orizontal: ");
+        char direction = myObj11.next().charAt(0);
+        System.out.print("Enter symbol: ");
+        char symbol = myObj11.next().charAt(0);
+        switch(direction){
+            case 'v':
+                printVertical(length,symbol);
+                break;
+            case 'h':
+                printHorizontal(length,symbol);
+                break;
+            default:
+                System.out.println("Invalid direction");
+        }
+        pause();
 
         System.out.println("\nTask 10");
         ArrayList<Integer> arr2 = array(100); //Маємо одновимірний масив, заповнений випадковими числами. На основі даних масиву потрібно:
@@ -200,11 +272,11 @@ public class Main {
         printArray(p);
         pause();
 
+
         System.out.println("\nTask 9");
-
         ArrayList<Integer> arr1 = array(100);
+        System.out.println("Random array:");
         printArray(arr1);
-
 
         // визначаємо мінімальне і максимальне значення,
         int max = Collections.max(arr1);
@@ -231,16 +303,18 @@ public class Main {
         System.out.println("\nTask 8");
         multiplyTable(0, 9);
         Scanner myObj8 = new Scanner(System.in);
-        System.out.println("Enter two numbers: ");
+        System.out.print("Enter first number: ");
         int start = myObj8.nextInt();
+        System.out.print("Enter second number: ");
         int finish = myObj8.nextInt();
         multiplyTable(start, finish);
         pause();
 
         System.out.println("\nTask 7");
         Scanner myObj7 = new Scanner(System.in);
-        System.out.println("Enter two numbers: ");
+        System.out.print("Enter first number: ");
         int firstNum = myObj7.nextInt();
+        System.out.print("Enter second number: ");
         int secondNum = myObj7.nextInt();
         if (firstNum > secondNum) {
             int temp = firstNum;    //нормалізацію границь
@@ -252,6 +326,7 @@ public class Main {
             if (i % 2 == 0) {
                 System.out.print(i + " ");
             }
+            System.out.println();
         }
         pause();
 
@@ -260,7 +335,7 @@ public class Main {
         System.out.println("Enter meters : ");
         int meters = myObj6.nextInt();
         System.out.println("Convert " + meters + " meters into (1)miles, (2)inches, (3)yards");
-        System.out.println("Please select (1 - 3) : ");
+        System.out.print("Please select (1 - 3) : ");
         int select = myObj6.nextInt();
         if (select < 1 || select > 3) {
             System.out.println("Invalid selection");
@@ -275,7 +350,7 @@ public class Main {
                 case 3:
                     System.out.println(meters + " meters = " + (meters * 0.9144) + " yards");
                     break;
-                default :
+                default:
                     System.out.println("Invalid selection");
                     break;
             }
@@ -284,7 +359,7 @@ public class Main {
 
         System.out.println("\nTask 5");
         Scanner myObj4 = new Scanner(System.in);
-        System.out.println("Enter 1 - 12 month number:");
+        System.out.print("Enter 1 - 12 month number: ");
         int monthNumber = myObj4.nextInt();
         if (monthNumber < 1 || monthNumber > 12) {
             System.out.println("Invalid month number");
@@ -292,42 +367,42 @@ public class Main {
             System.out.println("Result: ");
             switch (monthNumber) {
                 case 1:
-                    printMonth(Months.January,Seasons.Winter);
+                    printMonth(Months.January, Seasons.Winter);
                     break;
                 case 2:
-                    printMonth(Months.February,Seasons.Winter);
+                    printMonth(Months.February, Seasons.Winter);
                     break;
                 case 3:
-                    printMonth(Months.March,Seasons.Spring);
+                    printMonth(Months.March, Seasons.Spring);
                     break;
                 case 4:
-                    printMonth(Months.April,Seasons.Spring);
+                    printMonth(Months.April, Seasons.Spring);
                     break;
                 case 5:
-                    printMonth(Months.May,Seasons.Spring);
+                    printMonth(Months.May, Seasons.Spring);
                     break;
                 case 6:
-                    printMonth(Months.June,Seasons.Summer);
+                    printMonth(Months.June, Seasons.Summer);
                     break;
                 case 7:
-                    printMonth(Months.July,Seasons.Summer);
+                    printMonth(Months.July, Seasons.Summer);
                     break;
                 case 8:
-                    printMonth(Months.August,Seasons.Summer);
+                    printMonth(Months.August, Seasons.Summer);
                     break;
                 case 9:
-                    printMonth(Months.September,Seasons.Autumn);
+                    printMonth(Months.September, Seasons.Autumn);
                     break;
                 case 10:
-                    printMonth(Months.October,Seasons.Autumn);
+                    printMonth(Months.October, Seasons.Autumn);
                     break;
                 case 11:
-                    printMonth(Months.November,Seasons.Autumn);
+                    printMonth(Months.November, Seasons.Autumn);
                     break;
                 case 12:
-                    printMonth(Months.December,Seasons.Winter);
+                    printMonth(Months.December, Seasons.Winter);
                     break;
-                default :
+                default:
                     System.out.println("Invalid month number");
                     break;
             }
@@ -337,7 +412,7 @@ public class Main {
 
         System.out.println("\nTask 4");
         Scanner myObj3 = new Scanner(System.in);
-        System.out.println("Enter 6 digits number:");
+        System.out.print("Enter 6 digits number: ");
         String str = myObj3.nextLine();
         System.out.println("Original number: " + str);
         StringBuilder str2 = new StringBuilder(str);
@@ -359,11 +434,11 @@ public class Main {
 
         System.out.println("\nTask 3");
         Scanner myObj2 = new Scanner(System.in);
-        System.out.println("Enter 1 number:");
+        System.out.print("Enter 1 number: ");
         String number1 = myObj2.nextLine();
-        System.out.println("Enter 2 number:");
+        System.out.print("Enter 2 number: ");
         String number2 = myObj2.nextLine();
-        System.out.println("Enter 3 number:");
+        System.out.print("Enter 3 number: ");
         String number3 = myObj2.nextLine();
         String number4 = number1 + number2 + number3;
         System.out.println("Result: " + number4);
@@ -372,13 +447,13 @@ public class Main {
 
         System.out.println("\nTask 2");
         Scanner myObj = new Scanner(System.in);
-        System.out.println("Enter number:");
+        System.out.print("Enter number: ");
         int number = Integer.parseInt(myObj.nextLine());
         System.out.println("Number is: " + number);
-        System.out.println("Enter % percentage:");
+        System.out.print ("Enter % percentage: ");
         int percentage = Integer.parseInt(myObj.nextLine());
         System.out.println("Percentage % is: " + percentage);
-        System.out.println("Result : " + percentage + "% of Number is: " + number * percentage/100);
+        System.out.println("Result : " + percentage + "% of Number is: " + number * percentage / 100);
         pause();
 
 
@@ -388,6 +463,5 @@ public class Main {
                 "living someone else’s life”\n" +
                 "Steve Jobs";
         System.out.println(str1);
-
     }
 }
