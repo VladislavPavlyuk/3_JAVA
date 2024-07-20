@@ -1,13 +1,14 @@
 
-public class Tiger extends Animal {
+public class Kangaroo extends Animal {
     private String animalName;
     private String activity;
 
-    public Tiger(Animal animal, String animalName) {
+    public Kangaroo(Animal animal, String animalName) {
         super(animal.getName(), animal.getType().name(), animal.getGender().name(),animal.getDateOfBirth());
         this.animalName = animalName;
-        this.activity = "hunting";
+        this.activity = "jumping";
     }
+
 
     public String getAnimalName() {
         return animalName;
@@ -25,3 +26,5 @@ public class Tiger extends Animal {
         System.out.println(" and " + activity + ".");
     }
 }
+
+
